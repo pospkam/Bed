@@ -14,9 +14,18 @@
 
 **Хотите развернуть сайт прямо сейчас?**
 
-👉 **Читайте:** [QUICKSTART_DEPLOY.md](./QUICKSTART_DEPLOY.md) - деплой за 5 минут!
+### 🌐 Международные платформы:
+👉 **Vercel/Netlify:** [QUICKSTART_DEPLOY.md](./QUICKSTART_DEPLOY.md) - деплой за 5 минут!
 
 👉 **Подробная документация:** [DEPLOYMENT.md](./DEPLOYMENT.md)
+
+### 🇷🇺 Российские VPS:
+👉 **Timeweb Cloud:** [TIMEWEB_DEPLOY.md](./TIMEWEB_DEPLOY.md) - полная инструкция
+
+👉 **Автоматическая установка:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/pospkam/HabKam/main/scripts/timeweb-install.sh | bash
+```
 
 ## 🛠️ Технологии
 
