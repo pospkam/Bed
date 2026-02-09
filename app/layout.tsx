@@ -1,9 +1,21 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Playfair_Display, Work_Sans } from "next/font/google";
 import "./globals.css";
 import { Header, Footer } from "@/components/layout";
 
-const inter = Inter({ subsets: ["latin", "cyrillic"] });
+const playfair = Playfair_Display({ 
+  subsets: ["latin", "cyrillic"],
+  variable: '--font-display',
+  weight: ['400', '700', '900'],
+  display: 'swap',
+});
+
+const workSans = Work_Sans({ 
+  subsets: ["latin", "cyrillic"],
+  variable: '--font-sans',
+  weight: ['300', '400', '600', '700'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "KAMHUB - Агрегатор туров на Камчатку",
@@ -18,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={inter.className}>
+      <body className={`${workSans.variable} ${playfair.variable} font-sans`}>
         <Header />
         {children}
         <Footer />
