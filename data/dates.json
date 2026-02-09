@@ -1,0 +1,42 @@
+[
+  {
+    "id": "date-1",
+    "tourId": "winter-fishing-kamchatka",
+    "startDate": "2026-02-15",
+    "endDate": "2026-02-20",
+    "status": "available",
+    "spotsTotal": 6,
+    "spotsAvailable": 6,
+    "notes": "Все места свободны"
+  },
+  {
+    "id": "date-2",
+    "tourId": "winter-fishing-kamchatka",
+    "startDate": "2026-02-25",
+    "endDate": "2026-03-03",
+    "status": "available",
+    "spotsTotal": 6,
+    "spotsAvailable": 6,
+    "notes": ""
+  },
+  {
+    "id": "date-3",
+    "tourId": "winter-fishing-kamchatka",
+    "startDate": "2026-03-10",
+    "endDate": "2026-03-15",
+    "status": "partial",
+    "spotsTotal": 6,
+    "spotsAvailable": 2,
+    "notes": "Осталось только 2 места"
+  },
+  {
+    "id": "date-4",
+    "tourId": "winter-fishing-kamchatka",
+    "startDate": "2026-03-20",
+    "endDate": "2026-03-25",
+    "status": "booked",
+    "spotsTotal": 6,
+    "spotsAvailable": 0,
+    "notes": "Полностью забронировано"
+  }
+]
