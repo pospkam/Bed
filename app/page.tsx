@@ -31,7 +31,7 @@ export default function Home() {
                 Смотреть туры
               </Link>
               <a 
-                href="https://t.me/kamchatka_real"
+                href="https://t.me/KamchatourHub_bot"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-2 border-white/30 px-10 py-4 rounded-lg font-semibold text-lg transition-all"
@@ -115,7 +115,7 @@ export default function Home() {
                 
                 <div className="mt-8 flex flex-col sm:flex-row gap-4">
                   <a 
-                    href="https://t.me/kamchatka_real"
+                    href="https://t.me/KamchatourHub_bot"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-ocean-600 hover:bg-ocean-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors inline-flex items-center justify-center gap-2"
@@ -484,7 +484,7 @@ export default function Home() {
                 Посмотреть туры
               </Link>
               <a 
-                href="https://t.me/kamchatka_real"
+                href="https://t.me/KamchatourHub_bot"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-2 border-white/30 px-10 py-4 rounded-lg font-semibold text-lg transition-all"
