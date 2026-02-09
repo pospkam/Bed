@@ -1,5 +1,5 @@
-import { Tour } from "@/lib/types";
-import { TourCard } from "@/components/TourCard";
+import { Tour } from "@/types";
+import { TourCard } from "@/features/tours/components";
 
 async function getTours(): Promise<Tour[]> {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/tours`, {

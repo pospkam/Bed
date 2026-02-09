@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
-import { Booking, Tour } from "@/lib/types";
-import { bookingSchema } from "@/lib/validations";
+import { Booking, Tour } from "@/types";
+import { bookingSchema } from "@/lib/services/validations";
 import { generateId } from "@/lib/utils";
-import { sendTelegramNotification } from "@/lib/telegram";
+import { sendTelegramNotification } from "@/lib/services/telegram";
 import fs from "fs/promises";
 import path from "path";
 import toursData from "@/data/tours.json";

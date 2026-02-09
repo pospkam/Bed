@@ -1,4 +1,4 @@
-import { Tour, AvailableDate } from "@/lib/types";
+import { Tour, AvailableDate } from "@/types";
 import { formatPrice } from "@/lib/utils";
 import Link from "next/link";
 

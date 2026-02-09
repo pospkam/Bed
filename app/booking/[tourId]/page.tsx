@@ -1,5 +1,5 @@
-import { Tour, AvailableDate } from "@/lib/types";
-import { BookingForm } from "@/components/BookingForm";
+import { Tour, AvailableDate } from "@/types";
+import { BookingForm } from "@/features/bookings/components";
 import Link from "next/link";
 import { formatPrice } from "@/lib/utils";
 

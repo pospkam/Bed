@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { AvailableDate } from "@/lib/types";
+import { AvailableDate } from "@/types";
 import datesData from "@/data/dates.json";
 
 export async function GET(

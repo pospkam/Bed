@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Tour } from "@/lib/types";
+import { Tour } from "@/types";
 import toursData from "@/data/tours.json";
 
 export async function GET(

@@ -62,18 +62,26 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 
 ## 📂 Структура проекта
 
+Проект организован по принципу **feature-based architecture**:
+
 ```
 kamhub/
-├── app/
-│   ├── page.tsx              # Главная страница
-│   ├── tours/                # Каталог и детали туров
-│   ├── booking/              # Форма бронирования
-│   └── api/                  # API Routes
-├── components/               # React компоненты
-├── lib/                      # Утилиты и типы
-├── data/                     # JSON данные
+├── app/                      # Next.js App Router (страницы и API)
+├── features/                 # Модули по функциональности
+│   ├── tours/                # Туры
+│   └── bookings/             # Бронирования
+├── components/               # Переиспользуемые компоненты
+│   ├── layout/               # Header, Footer
+│   └── ui/                   # UI компоненты
+├── lib/                      # Библиотеки и сервисы
+│   ├── utils/                # Утилиты (форматирование и т.д.)
+│   └── services/             # Сервисы (Telegram, валидация)
+├── types/                    # TypeScript типы
+├── data/                     # JSON данные (временно)
 └── public/                   # Статические файлы
 ```
+
+📖 **Подробное описание архитектуры:** [ARCHITECTURE.md](./ARCHITECTURE.md)
 
 ## 🎯 Бизнес-модель
 

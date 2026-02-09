@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Tour } from "@/lib/types";
+import { Tour } from "@/types";
 import { formatPrice } from "@/lib/utils";
 
 interface TourCardProps {

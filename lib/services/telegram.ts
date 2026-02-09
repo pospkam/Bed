@@ -1,4 +1,4 @@
-import { Booking } from "./types";
+import { Booking } from "@/types";
 import { format, parseISO } from "date-fns";
 import { ru } from "date-fns/locale";
 

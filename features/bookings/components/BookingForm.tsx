@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Tour, AvailableDate } from "@/lib/types";
+import { Tour, AvailableDate } from "@/types";
 import { formatPrice } from "@/lib/utils";
 import { format, parseISO, differenceInDays } from "date-fns";
 import { ru } from "date-fns/locale";
