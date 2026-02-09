@@ -381,7 +381,7 @@ git clone https://github.com/pospkam/HabKam.git
 
 Если возникли проблемы:
 - Email: info@kamhub.ru
-- Telegram: @kamhub_support
+- Telegram: @kamchatka_real
 - GitHub Issues: https://github.com/pospkam/HabKam/issues
 
 ---

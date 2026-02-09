@@ -130,5 +130,5 @@ kamhub/
 ## 📞 Контакты
 
 - Email: info@kamhub.ru
-- Telegram: @kamhub_support
-- GitHub: https://github.com/PosPk/kamhub
+- Telegram: @kamchatka_real
+- GitHub: https://github.com/pospkam/HabKam

@@ -59,7 +59,7 @@ export function Footer() {
             <h4 className="font-bold mb-4">Контакты</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>Email: info@kamhub.ru</li>
-              <li>Telegram: @kamhub_support</li>
+              <li>Telegram: @kamchatka_real</li>
               <li>Камчатский край, Елизово</li>
             </ul>
           </div>

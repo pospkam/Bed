@@ -77,7 +77,7 @@ export default function BookingSuccessPage({
           <div className="mt-8 pt-8 border-t text-xs text-gray-500">
             <p>
               Если у вас возникли вопросы, свяжитесь с нами:<br />
-              Email: info@kamhub.ru | Telegram: @kamhub_support
+              Email: info@kamhub.ru | Telegram: @kamchatka_real
             </p>
           </div>
         </div>

@@ -743,7 +743,7 @@ grep server_name /etc/nginx/sites-available/kamhub
 
 **Поддержка:**
 - 📧 Email: info@kamhub.ru
-- 💬 Telegram: @kamhub_support
+- 💬 Telegram: @kamchatka_real
 - 🐛 Issues: https://github.com/pospkam/HabKam/issues
 
 **Успешного запуска! 🎣🏔️**

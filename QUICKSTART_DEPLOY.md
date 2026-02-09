@@ -198,7 +198,7 @@ pm2 startup
 ## 📞 Нужна помощь?
 
 - 📧 Email: info@kamhub.ru
-- 💬 Telegram: @kamhub_support
+- 💬 Telegram: @kamchatka_real
 - 🐛 Issues: https://github.com/pospkam/HabKam/issues
 
 **Время деплоя: 5 минут | Сложность: Легко | Стоимость: $0 (Free tier)**
