@@ -9,9 +9,9 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           {/* О компании */}
           <div>
-            <h4 className="font-bold mb-4">KAMHUB</h4>
+            <h4 className="font-bold mb-4">HABKAM</h4>
             <p className="text-gray-400 text-sm">
-              Агрегатор туров на Камчатку. Лучшие предложения от проверенных операторов.
+              Камчатка не для туристов. Работаем только с проверенными операторами.
             </p>
           </div>
 
@@ -58,7 +58,6 @@ export function Footer() {
           <div>
             <h4 className="font-bold mb-4">Контакты</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li>Email: info@kamhub.ru</li>
               <li>
                 Бот: <a href="https://t.me/KamchatourHub_bot" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">@KamchatourHub_bot</a>
               </li>
@@ -71,7 +70,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
-          <p>&copy; {currentYear} KAMHUB. Все права защищены.</p>
+          <p>&copy; {currentYear} HABKAM. Все права защищены.</p>
         </div>
       </div>
     </footer>

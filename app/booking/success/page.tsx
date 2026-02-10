@@ -77,7 +77,7 @@ export default function BookingSuccessPage({
           <div className="mt-8 pt-8 border-t text-xs text-gray-500">
             <p>
               Если у вас возникли вопросы, свяжитесь с нами:<br />
-              Email: info@kamhub.ru | Бот: <a href="https://t.me/KamchatourHub_bot" className="hover:text-blue-600 underline">@KamchatourHub_bot</a>
+              Бот: <a href="https://t.me/KamchatourHub_bot" className="hover:text-blue-600 underline">@KamchatourHub_bot</a> | Канал: <a href="https://t.me/kamchatka_real" className="hover:text-blue-600 underline">@kamchatka_real</a>
             </p>
           </div>
         </div>
