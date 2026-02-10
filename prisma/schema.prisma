@@ -1,0 +1,240 @@
+// Prisma schema for HabKam - Камчатка туры агрегатор
+// Database: Timeweb Managed PostgreSQL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// МОДЕЛИ
+// ============================================
+
+// Партнёры (операторы туров)
+model Partner {
+  id            String    @id @default(cuid())
+  name          String
+  email         String    @unique
+  emailVerified DateTime?
+  passwordHash  String
+  role          Role      @default(PARTNER)
+  phone         String?
+  telegram      String?
+  image         String?
+  
+  // Связи
+  tours         Tour[]
+  accounts      Account[]
+  sessions      Session[]
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@map("partners")
+}
+
+// NextAuth Account (для OAuth провайдеров в будущем)
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user Partner @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+// NextAuth Session
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         Partner  @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+// NextAuth Verification Token
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+// Туры
+model Tour {
+  id              String       @id @default(cuid())
+  slug            String       @unique
+  title           String
+  description     String       @db.Text
+  fullDescription String?      @db.Text
+  
+  // Локация и категория
+  locationName    String
+  category        TourCategory @default(OTHER)
+  difficulty      Difficulty   @default(MEDIUM)
+  
+  // Цены
+  pricePerDay     Int
+  priceOriginal   Int?
+  
+  // Параметры группы
+  minGroupSize    Int          @default(1)
+  maxGroupSize    Int          @default(10)
+  minDuration     Int          @default(1)
+  
+  // Что входит
+  included        String[]
+  notIncluded     String[]
+  images          String[]
+  
+  // Партнёр-владелец
+  partnerId       String
+  partner         Partner      @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+  
+  // Связи
+  dates           TourDate[]
+  bookings        Booking[]
+  
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  @@index([slug])
+  @@index([partnerId])
+  @@index([category])
+  @@map("tours")
+}
+
+// Доступные даты туров
+model TourDate {
+  id         String         @id @default(cuid())
+  
+  // Связь с туром
+  tourId     String
+  tour       Tour           @relation(fields: [tourId], references: [id], onDelete: Cascade)
+  
+  // Даты
+  startDate  DateTime
+  endDate    DateTime
+  
+  // Статус и места
+  status     DateStatus     @default(AVAILABLE)
+  spotsTotal Int            @default(6)
+  spotsAvailable Int        @default(6)
+  
+  // Дополнительно
+  priceOverride Int?
+  notes         String?
+  
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+
+  @@unique([tourId, startDate]) // Одна дата не может быть дважды у одного тура
+  @@index([tourId])
+  @@index([startDate])
+  @@index([status])
+  @@map("tour_dates")
+}
+
+// Бронирования
+model Booking {
+  id            String        @id @default(cuid())
+  
+  // Связь с туром
+  tourId        String
+  tour          Tour          @relation(fields: [tourId], references: [id], onDelete: Cascade)
+  tourTitle     String
+  
+  // Даты
+  startDate     DateTime
+  endDate       DateTime
+  days          Int
+  
+  // Клиент
+  customerName  String
+  customerPhone String
+  customerEmail String?
+  customerTelegram String?
+  
+  // Детали бронирования
+  persons       Int
+  comment       String?       @db.Text
+  
+  // Цены
+  pricePerDay   Int
+  totalPrice    Int
+  commission    Int           @default(0)
+  
+  // Статус и источник
+  status        BookingStatus @default(PENDING)
+  source        String        @default("website")
+  
+  // UTM метки
+  utmSource     String?
+  utmMedium     String?
+  utmCampaign   String?
+  
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@index([tourId])
+  @@index([status])
+  @@index([startDate])
+  @@index([createdAt])
+  @@map("bookings")
+}
+
+// ============================================
+// ENUMS
+// ============================================
+
+enum Role {
+  PARTNER
+  ADMIN
+}
+
+enum TourCategory {
+  FISHING
+  HIKING
+  VOLCANO
+  SKIING
+  OTHER
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum DateStatus {
+  AVAILABLE
+  PARTIAL
+  BOOKED
+  BLOCKED
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
