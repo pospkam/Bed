@@ -11,7 +11,7 @@ const playfair = Playfair_Display({
 });
 
 const workSans = Work_Sans({ 
-  subsets: ["latin", "cyrillic"],
+  subsets: ["latin", "latin-ext"],
   variable: '--font-sans',
   weight: ['300', '400', '600', '700'],
   display: 'swap',
