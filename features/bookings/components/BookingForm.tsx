@@ -9,10 +9,11 @@ import { ru } from "date-fns/locale";
 interface BookingFormProps {
   tour: Tour;
   availableDates: AvailableDate[];
+  preselectedDateId?: string;
 }
 
-export function BookingForm({ tour, availableDates }: BookingFormProps) {
-  const [selectedDateId, setSelectedDateId] = useState<string>("");
+export function BookingForm({ tour, availableDates, preselectedDateId }: BookingFormProps) {
+  const [selectedDateId, setSelectedDateId] = useState<string>(preselectedDateId || "");
   const [formData, setFormData] = useState({
     name: "",
     phone: "",

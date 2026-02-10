@@ -1,6 +1,7 @@
 import { Tour, AvailableDate } from "@/types";
 import { formatPrice } from "@/lib/utils";
 import Link from "next/link";
+import { TourBookingSection } from "@/features/tours/components";
 
 async function getTour(slug: string): Promise<Tour> {
   const res = await fetch(
@@ -144,91 +145,7 @@ export default async function TourPage({ params }: { params: { slug: string } })
 
           {/* Сайдбар - бронирование */}
           <div>
-            <div className="card sticky top-20">
-              <h3 className="mb-4">Забронировать</h3>
-              
-              {/* Цена */}
-              <div className="mb-6">
-                {tour.priceOriginal && (
-                  <span className="text-lg text-gray-400 line-through block">
-                    {formatPrice(tour.priceOriginal)}₽
-                  </span>
-                )}
-                <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-bold text-blue-600">
-                    {formatPrice(tour.pricePerDay)}₽
-                  </span>
-                  <span className="text-gray-500">/сутки</span>
-                </div>
-              </div>
-
-              {/* Детали */}
-              <div className="space-y-3 mb-6 text-sm text-gray-700">
-                <div className="flex justify-between">
-                  <span>Минимум дней:</span>
-                  <span className="font-medium">{tour.minDuration}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Группа:</span>
-                  <span className="font-medium">{tour.minGroupSize}-{tour.maxGroupSize} чел</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Сложность:</span>
-                  <span className="font-medium">{difficultyLabels[tour.difficulty]}</span>
-                </div>
-              </div>
-
-              {/* Доступные даты */}
-              {availableDates.length > 0 ? (
-                <div className="mb-6">
-                  <h4 className="text-sm font-bold mb-3">Доступные даты:</h4>
-                  <div className="space-y-2 max-h-60 overflow-y-auto">
-                    {availableDates.map((date) => (
-                      <div 
-                        key={date.id}
-                        className="p-3 border rounded-lg hover:border-blue-500 cursor-pointer transition-colors"
-                      >
-                        <div className="flex justify-between items-start mb-1">
-                          <div className="text-sm">
-                            <p className="font-medium">
-                              {new Date(date.startDate).toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' })} - {new Date(date.endDate).toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' })}
-                            </p>
-                          </div>
-                          <span className={`text-xs px-2 py-1 rounded ${
-                            date.status === 'available' ? 'bg-green-100 text-green-700' :
-                            date.status === 'partial' ? 'bg-yellow-100 text-yellow-700' :
-                            'bg-gray-100 text-gray-700'
-                          }`}>
-                            {date.spotsAvailable} мест
-                          </span>
-                        </div>
-                        {date.notes && (
-                          <p className="text-xs text-gray-500">{date.notes}</p>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                <div className="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                  <p className="text-sm text-yellow-800">
-                    На данный момент нет доступных дат. Свяжитесь с оператором для уточнения.
-                  </p>
-                </div>
-              )}
-
-              {/* Кнопка бронирования */}
-              <Link 
-                href={`/booking/${tour.id}`}
-                className="btn-primary w-full text-center block"
-              >
-                Забронировать
-              </Link>
-
-              <p className="text-xs text-gray-500 text-center mt-3">
-                Минимальная группа: {tour.minGroupSize} человек
-              </p>
-            </div>
+            <TourBookingSection tour={tour} availableDates={availableDates} />
           </div>
         </div>
       </div>
