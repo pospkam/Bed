@@ -5,7 +5,7 @@ const nextConfig = {
     domains: ['localhost'],
     unoptimized: true,
   },
-  output: 'standalone',
+  // output: 'standalone',
   // Для статического экспорта раскомментируйте:
   // output: 'export',
   // trailingSlash: true,
